@@ -5,9 +5,13 @@ function ToggleButton({ className }) {
   const [isToggled, setIsToggled] = useState(false);
   const [originalText, setOriginalText] = useState([]);
 
+  // Components to be considered can be added here
+  const componentNames = ['p', 'span'];
+
   const handleToggle = () => {
-    const textTags = document.querySelectorAll(`.${className} p, .${className} span`);
-    
+    const componentSelectors = componentNames.map(name => `.${className} ${name}`).join(', ');
+    const textTags = document.querySelectorAll(componentSelectors);
+
     // Loop through each text tag and modify its text content
     textTags.forEach((el, i) => {
       // Toggle on - store the original text and update the tag content
@@ -51,11 +55,9 @@ function ToggleButton({ className }) {
         }
       }
     });
-  
     // Toggle the isToggled state
     setIsToggled(!isToggled);
   };
-  
 
   const boldWords = (text) => {
     const first = "<strong>";
