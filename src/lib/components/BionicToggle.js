@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../assets/toggleButton.css";
+import "../assets/bionicToggle.css";
 
-function ToggleButton({ className }) {
+function BionicToggle({ className }) {
   const [isToggled, setIsToggled] = useState(false);
   const [originalText, setOriginalText] = useState([]);
 
@@ -83,4 +83,4 @@ function ToggleButton({ className }) {
   );
 }
 
-export default ToggleButton;
+export default BionicToggle;
